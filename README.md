@@ -50,3 +50,37 @@ Pag MongoDB: [MongoDB.com](https://www.mongodb.com/es).
 Consiste en copias de seguridad realizadas por conjuntos de réplicas o servidores que son administrados por nodos, los cuales se dividen en dos grupos, el nodo primario y los nodos secundarios. Las copias de seguridad se realizan en diferentes servidores, esto permite asegurar los datos de la base principal en caso de que haya algún tipo de error.
 
 El nodo primario es el encargado de administrar las copias de seguridad existentes, en caso de que este nodo falle, la administración pasa al nodo secundario para que este continúe con la tarea y así se mantenga la información actualizada en cada momento entre la base de datos principales y las copias existentes. Al momento en que el nodo secundario toma el papel de administración este pasa a ser el nuevo nodo primario.
+
+## Marco Metodologico
+
+### Python
+Para instalar python se debe descargar desde su pagina principal [Python.org](https://www.python.org/downloads/). 
+Posterior a su descarga, ejecutamos el instalador y permitimos el uso de la variable PATH el cual es una lista de directorios que el sistema operativo busca para encontrar ejecutables cuando se emite un comando desde la línea de comandos o el terminal., tras su instalación, abrimos nuestro editor de texto en este caso Vscode y procedemos a intalar la extencion de Python. 
+### Flask
+Para instalar flask en vscode debemos permitir el uso de scripts por medio de la terminal de powershell en donde se debe usar el comando:
+
+```
+Set-ExecutionPolicy RemoteSigned
+```
+Posterior a esto se debe ingresar a nuestro editor de texto Vscode, para usar el comando: 
+```
+pip install flask
+```
+Hay que tener en cuenta que, para que el comando sea reconocido, es necesario tener instalado python en el dispositivo y tener instaladas las extenciones necesarias de python en Visual Studio code.
+### MongoDB
+Para que la variable en la que realizamos la conexion con MongoAtlas funcione debemos instalar pymongo en la terminal de vscode con el siguiente comando:
+```
+pip install pymongo
+```
+Y posterior a esto procedemos a instalar el certifi con el siguiente comando: 
+```
+pip install certifi
+```
+y por ultimo utilizamos el comando: 
+```
+pip install pymongo[srv]
+```
+Luego de realizar la instalacion se debe importar el Mongoclient desde pymongo e importar el certifi que nos permite realizar la conexion con la base de datos. 
+### Restful API
+
+## Bibliografia
