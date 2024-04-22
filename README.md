@@ -35,3 +35,18 @@ Algunas de sus ventajas son:
 - Fácil de integrar a otro servicios
 
 Origen de la información: [Flask](https://www.youtube.com/watch?v=W-SfC_V7P6o). 
+
+### MongoDB
+Es un gestor de bases de datos en la nube que cuenta con una arquitectura NoSQL, esto quiere decir que es una base de datos no relacional. Las bases de datos No relacionales permiten el manejo de grandes cantidades de datos dejando de lado el estándar basado en una estructura base la cual seguir, esta arquitectura está orientada a documentos, a diferencia de las bases de datos relacionales como Mysql o postgres que utilizan tablas y columnas para almacenar la información, MongoDB hace uso de colecciones y documentos para almacenar grandes cantidades de información.
+
+#### Atlas
+Para utilizar los servicios en la nube de mongoDB es necesario utilizar MongoDB Atlas, por medio de esta plataforma se pueden administrar de forma más detallada y eficiente las bases de datos que hayamos creado en la herramienta para escritorio MongoDB compass, la cual es utilizada por aquellas personas que prefieren un entorno de trabajo más visual, MongoDB también cuenta con su propia terminal en la cual se pueden realizar la creación y administración de las bases de datos, cabe resaltar que esta terminal también se puede instalar de forma independiente en caso de no querer instalar MongoDB Compass.
+
+Tanto MongoDB como MongoDB Compass como MongoDB shell se pueden descargar por medio de la página oficial, está disponible tanto para Windows como para Linux y Mac.
+
+Pag MongoDB: [MongoDB.com](https://www.mongodb.com/es).
+
+### Replication MongoDB
+Consiste en copias de seguridad realizadas por conjuntos de réplicas o servidores que son administrados por nodos, los cuales se dividen en dos grupos, el nodo primario y los nodos secundarios. Las copias de seguridad se realizan en diferentes servidores, esto permite asegurar los datos de la base principal en caso de que haya algún tipo de error.
+
+El nodo primario es el encargado de administrar las copias de seguridad existentes, en caso de que este nodo falle, la administración pasa al nodo secundario para que este continúe con la tarea y así se mantenga la información actualizada en cada momento entre la base de datos principales y las copias existentes. Al momento en que el nodo secundario toma el papel de administración este pasa a ser el nuevo nodo primario.
