@@ -51,6 +51,15 @@ Consiste en copias de seguridad realizadas por conjuntos de réplicas o servidor
 
 El nodo primario es el encargado de administrar las copias de seguridad existentes, en caso de que este nodo falle, la administración pasa al nodo secundario para que este continúe con la tarea y así se mantenga la información actualizada en cada momento entre la base de datos principales y las copias existentes. Al momento en que el nodo secundario toma el papel de administración este pasa a ser el nuevo nodo primario.
 
+### Restful API
+La API RESTful es una interfaz que dos sistemas de computación utilizan para intercambiar información de manera segura a través de Internet. La mayoría de las aplicaciones para empresas deben comunicarse con otras aplicaciones internas o de terceros para llevar a cabo varias tareas. Por ejemplo, para generar nóminas mensuales, su sistema interno de cuentas debe compartir datos con el sistema bancario de su cliente para automatizar la facturación y comunicarse con una aplicación interna de planillas de horarios. Las API RESTful admiten este intercambio de información porque siguen estándares de comunicación de software seguros, confiables y eficientes.
+La función básica de una API RESTful es la misma que navegar por Internet. Cuando requiere un recurso, el cliente se pone en contacto con el servidor mediante la API. Los desarrolladores de API explican cómo el cliente debe utilizar la API REST en la documentación de la API de la aplicación del servidor. A continuación, se indican los pasos generales para cualquier llamada a la API REST: 
+
+1. El cliente envía una solicitud al servidor. El cliente sigue la documentación de la API para dar formato a la solicitud de una manera que el servidor comprenda.
+2. El servidor autentica al cliente y confirma que este tiene el derecho de hacer dicha solicitud.
+3. El servidor recibe la solicitud y la procesa internamente.
+4. Luego, devuelve una respuesta al cliente. Esta respuesta contiene información que dice al cliente si la solicitud se procesó de manera correcta. La respuesta también incluye cualquier información que el cliente haya solicitado.
+
 ## Marco Metodologico
 
 ### Python
