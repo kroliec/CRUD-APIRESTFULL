@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-size: cover;
+  padding: 40px 0;
+}
+
+:root{
+  --Main-title-color: rgb(240, 233, 233);
+  --titles-color: rgb(255, 255, 255);
+  --button-color: rgb(15, 217, 231);
+  --botton-edit: rgb(15, 217, 231);
+  --botton-delete: rgb(241, 9, 9);
+
+}
+
+.contenedor{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 200px, 1fr;
+
+  justify-content: center;
+  align-content: space-between;
+
+
+
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+}
+
+h1{
+  color: var(--Main-title-color);
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+}
+
+.section_one_div{
+  
+  background: linear-gradient(200deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 10px ;
+}
+
+.form_grid{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:  1fr 1fr; 
+
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.title_label{
+  color: var(--titles-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px #0ef;
+}
+
+.input_section_one{
+  padding: 5px;
+  border-color: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: transparent;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+  outline: none;
+  caret-color: white;
+  
+}
+
+.input_section_one:hover{
+  background-color: gray;
+  opacity: 30%;
+  color: rgb(255, 255, 255);
+  transition: 0.5s;
+  caret-color: white;
+
+}
+
+::placeholder{
+  color: white;
+}
+
+::-webkit-input-placeholder{
+  color: white;
+}
+
+:hover::placeholder{
+  color: white;
+}
+
+:hover::-webkit-input-placeholder{
+  color: white;
+}
+
+.button_form{
+  width: 100%;
+  margin-top: 20px;
+  min-height: 20px;
+  max-height: 30px;
+  background-color: transparent;
+  border-color: var(--button-color);
+  color: white;
+  border-radius: 10px;
+}
+
+
+.button_form:hover{
+  background-color: var(--button-color);
+  color: white;
+  transition: 0.5s;
+}
+
+
+
+
+/*-----------------------*/
+.section_two_div{
+
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  margin-bottom: 20px;
+  padding: 10px;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.section_two_div::-webkit-scrollbar{
+  scrollbar-width: none;
+}
+
+.thead_table{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 200px 130px 180px 1fr;
+
+  justify-items: center;
+
+  border-radius: 3px solid rgb(150, 83, 83);
+}
+
+.th_name{
+  justify-self: start;
+  padding-left: 20px;
+}
+
+.th_password{
+  justify-self: center;
+  margin-left: 30px;
+}
+
+
+.form_table{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr;
+  grid-template-rows:  1fr; 
+
+  justify-content: center;
+
+
+  border-radius: 3px solid rgb(150, 83, 83);
+
+}
+
+th{
+  color: var(--titles-color);
+  font-family: sans-serif;
+}
+
+
+
+
+
+.input_section_two{
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px var(--button-color) solid;
+  opacity: 70%;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  caret-color: black;
+}
+
+
+.button_edit{
+  background-color: var(--botton-edit);
+  font-family: sans-serif;
+  height: 30px;
+  margin: 3px;
+  border-radius: 3px;
+  border: var(--botton-edit);
+}
+
+.button_edit, h1{
+  color: black;
+}
+
+.button_edit:hover{
+  transition: 0.5s;
+}
+
+.button_edit, h1:hover{
+  color: white;
+  transition: 0.5s;
+}
+
+.button_de{
+  background-color: var(--botton-delete);
+  font-family: sans-serif;
+  height: 30px;
+  border-radius: 3px;
+  border: 5px var(--botton-delete);
+}
+
+.button_de, h1{
+  color: white;
+}
+
+.button_de, h1:hover{
+  color: rgb(0, 0, 0);
+}
+
+.button_de, a{
+  text-decoration: none;
+  color: var(--titles-color);
+}
+
+.button_de,a:hover{
+  color: black;
+  transition: 0.5s;
+}

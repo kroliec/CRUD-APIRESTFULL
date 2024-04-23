@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIRESTFUL</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    <style>
+        body{
+            background-image: url("{{url_for('static', filename='images/furina.png')}}");
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>API REST PYTHON-FLASK-MONGODB+POSTMAN</h1>
+        <section class="section_one_div">
+            <form class="form_grid" action="/users" method="POST">
+                <div>
+                    <label class="title_label">Name</label>
+                    <br>
+                    <input class="input_section_one" type="text" name="name" placeholder="Insert name" required>
+                </div>
+                
+                <div>
+                    <label class="title_label">Password</label>
+                    <br>
+                    <input class="input_section_one" type="text" name="password" placeholder="insert password" required>
+                </div>
+
+                <div>
+                    <label class="title_label">Numero</label>
+                    <br>
+                    <input class="input_section_one" type="text" name="number" placeholder="Insert name" required>
+                </div>
+                <br>
+                <button class="button_form" type="submit"><h1>Guardar</h1></button>
+            </form>
+        </section>
+        <br><br>
+        <section class="section_two_div">
+            <div>
+                
+                    <div class="thead_table">
+                        <th class="th_name"><h1>Name</h1></th>
+                        <th class="th_password"><h1>Password</h1></th>
+                        <th class="th_number"><h1>Number</h1></th>
+                    </div>
+          
+                {% for user in users %}
+                
+                <form class="form_table" action="/edit/{{user.name}}" method="POST">
+                    <table>
+                        <tr>
+                            <td><input class="input_section_two" type="text" value="{{user.name}}" name="name"></td>
+                            <td><input class="input_section_two" type="text" value="{{user.password}}" name="password"></td>
+                            <td><input class="input_section_two" type="text" value="{{user.number}}" name="number"></td>
+                            <td><button class="button_edit" type="submit"><h1>Editar</h1></button></td>
+                            <td><button class="button_de"><h1><a href="{{url_for('delete', user_name=user.name)}}">Eliminar</a></h1></button></td>
+                        </tr>
+                    </table>
+                </form>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</body>
+</html>
