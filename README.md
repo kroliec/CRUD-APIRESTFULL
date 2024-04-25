@@ -81,7 +81,7 @@ pip install flask
 ```
 Hay que tener en cuenta que, para que el comando sea reconocido, es necesario tener instalado python en el dispositivo y tener instaladas las extenciones necesarias de python en Visual Studio code.
 
-En el siguiente comando vamos a lanzar un archivo index.html el una carpeta llamada templates, ya que la funcion (render_template) es qeu buscara dicho archivo en una carpeta llamada de igual forma es decir template: 
+En el siguiente comando vamos a lanzar un archivo index.html el una carpeta llamada templates, ya que la función (render_template) buscara dicho archivo en una carpeta llamada de igual forma es decir template: 
 
 ```
 @app.route('/')
