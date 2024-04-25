@@ -102,7 +102,26 @@ y por ultimo utilizamos el comando:
 ```
 pip install pymongo[srv]
 ```
-Luego de realizar la instalacion se debe importar el Mongoclient desde pymongo e importar el certifi que nos permite realizar la conexion con la base de datos. 
+Luego de realizar la instalacion se debe importar el Mongoclient desde pymongo e importar el certifi que nos permite realizar la conexion con la base de datos como se  muetra en el siguiente comando: 
+
+```
+from pymongo import MongoClient
+import certifi
+
+MONGO_URI='mongodb+srv://shadow:sololeveling@clustersockets.7tvakqr.mongodb.net/'
+ca=certifi.where()
+
+def dbConnection():
+    try:
+        client=MongoClient(MONGO_URI, tlsCAFile=ca)
+        db=client["db_crud"]
+    except ConnectionError:
+        print("Error de conexion con la base de datos")
+    return db
+
+```
+En el siguiente comando nos conectamos a nuestra base de datos, pero si la base de datos no existe esta es creada automaticamente con el nombre (db_crud)
+
 ### Restful API
 
 ## Bibliografia
