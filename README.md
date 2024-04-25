@@ -126,8 +126,10 @@ En el siguiente comando nos conectamos a nuestra base de datos, pero si la base 
 
 ### Restful API
 Una restful api funciona por medio de una peticiones o mejor dicho de unos verbos los cuales son GET, POST, PUT y DELETE.
-###GET
+
+### GET
 Lo que hace es acceder al archivo html y muestra todos lo datos que se encuntren en la base de datos, las lineas user=db['users'] y usersReceived=users.find() sirven para ingresar a la base de datos y encontrar y traer lo que esta contenga.
+
 ```
 #rutas de la aplicacion
 #Metdo GET
@@ -137,7 +139,8 @@ def index():
     usersReceived=users.find()
     return render_template('index.html', users=usersReceived)
 ```
-###POST
+
+### POST
 Esta peticion permite hacer el envio de los datos necesarios a la api para que asi se puedan mostrar por medio del servicio que se este consumiendo.
 Lo primero que se debe hacer es especificar la base de datos a usar y luego se acceder al formulario html el cual esta recogiendo los datos a utilizar, para asi obtener los parametros relacionados con la informacion que sera guardada en la base de datos, luego de esto verifica que los parmetros sean correctos para asi poder realizar la insercion de datos en la base de datos de forma correcta.
 ```
@@ -163,9 +166,10 @@ def addUser():
         return notFound()
 ```
 
-###DELETE
+### DELETE
 Esta peticion permite eliminar la informacion que ya fue enviada a la api.
 Primero se le proporciona el nombre de la base de datos a la que va ingresar y luego se le dan los parametros necesarios para que encuentre y elimine la informacion relacionada a los parametros correspondientes.
+
 ```
 #Metodo Delete
 @app.route('/delete/<string:user_name>')
@@ -175,8 +179,9 @@ def delete(user_name):
     return redirect(url_for('index'))
 ```
 
-###PUT
+### PUT
 Esta peticion es practicamente el mismo proceso que la de POST, la unica diferencia es que en vez de realizar una insercion de datos a la db, lo que se va a hacer es modificar la informacion que ya se encuntra alli.
+
 ```
 #Metodo PUT
 @app.route('/edit/<string:user_name>', methods=['POST', 'PUT'])
@@ -198,4 +203,5 @@ def edit(user_name):
      else:
          return notFound()
 ```
+
 ## Bibliografia
