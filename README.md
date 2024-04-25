@@ -52,8 +52,10 @@ Consiste en copias de seguridad realizadas por conjuntos de réplicas o servidor
 El nodo primario es el encargado de administrar las copias de seguridad existentes, en caso de que este nodo falle, la administración pasa al nodo secundario para que este continúe con la tarea y así se mantenga la información actualizada en cada momento entre la base de datos principales y las copias existentes. Al momento en que el nodo secundario toma el papel de administración este pasa a ser el nuevo nodo primario.
 
 ### API
+Una API (Application Programming Interface) es un conjunto de reglas y protocolos que permite que diferentes aplicaciones se comuniquen entre sí. Es como un contrato que especifica cómo se deben enviar y recibir datos. Además de esto también son los servicios que van a ser consumidos.
 
 ### REST
+Es el concepto, son los pasos que se deben de seguir para poder desarrollar y consumir de forma eficiente y correcta una api. Rest pone sobre la mesa como debe ser el funcionamiento de una api y permite la conexion con los servicios que se van a consumir.
 
 ### Restful API
 La API RESTful es una interfaz que dos sistemas de computación utilizan para intercambiar información de manera segura a través de Internet. La mayoría de las aplicaciones para empresas deben comunicarse con otras aplicaciones internas o de terceros para llevar a cabo varias tareas. Por ejemplo, para generar nóminas mensuales, su sistema interno de cuentas debe compartir datos con el sistema bancario de su cliente para automatizar la facturación y comunicarse con una aplicación interna de planillas de horarios. Las API RESTful admiten este intercambio de información porque siguen estándares de comunicación de software seguros, confiables y eficientes.
@@ -123,5 +125,77 @@ def dbConnection():
 En el siguiente comando nos conectamos a nuestra base de datos, pero si la base de datos no existe esta es creada automaticamente con el nombre (db_crud)
 
 ### Restful API
+Una restful api funciona por medio de una peticiones o mejor dicho de unos verbos los cuales son GET, POST, PUT y DELETE.
+###GET
+Lo que hace es acceder al archivo html y muestra todos lo datos que se encuntren en la base de datos, las lineas user=db['users'] y usersReceived=users.find() sirven para ingresar a la base de datos y encontrar y traer lo que esta contenga.
+```
+#rutas de la aplicacion
+#Metdo GET
+@app.route('/')
+def index():
+    users=db['users']
+    usersReceived=users.find()
+    return render_template('index.html', users=usersReceived)
+```
+###POST
+Esta peticion permite hacer el envio de los datos necesarios a la api para que asi se puedan mostrar por medio del servicio que se este consumiendo.
+Lo primero que se debe hacer es especificar la base de datos a usar y luego se acceder al formulario html el cual esta recogiendo los datos a utilizar, para asi obtener los parametros relacionados con la informacion que sera guardada en la base de datos, luego de esto verifica que los parmetros sean correctos para asi poder realizar la insercion de datos en la base de datos de forma correcta.
+```
+#Metodo POST
+@app.route('/users', methods=['POST', 'PUT'])
+def addUser():
+    #recibiendo datos
+    users=db['users']
+    name=request.form['name']
+    password=request.form['password']
+    number=request.form['number']
 
+    if name and password and number:
+        user=User(name, password, number)
+        users.insert_one(user.toDBCollection())
+        response = jsonify({
+             'name':name,
+             'password':password,
+             'number':number
+        })
+        return redirect(url_for('index'))
+    else:
+        return notFound()
+```
+
+###DELETE
+Esta peticion permite eliminar la informacion que ya fue enviada a la api.
+Primero se le proporciona el nombre de la base de datos a la que va ingresar y luego se le dan los parametros necesarios para que encuentre y elimine la informacion relacionada a los parametros correspondientes.
+```
+#Metodo Delete
+@app.route('/delete/<string:user_name>')
+def delete(user_name):
+    users=db['users']
+    users.delete_one({'name':user_name})
+    return redirect(url_for('index'))
+```
+
+###PUT
+Esta peticion es practicamente el mismo proceso que la de POST, la unica diferencia es que en vez de realizar una insercion de datos a la db, lo que se va a hacer es modificar la informacion que ya se encuntra alli.
+```
+#Metodo PUT
+@app.route('/edit/<string:user_name>', methods=['POST', 'PUT'])
+def edit(user_name):
+    #recibiendo datos
+     users=db['users']
+     name=request.form['name']
+     password=request.form['password']
+     number=request.form['number']
+
+     if name and password and number:
+         users.update_one({'name':user_name},
+                          {'$set':{'name':name, 
+                           'password':password, 
+                           'number':number}
+                           })
+         response=jsonify({'message':'Usuario'+ user_name + 'actualizado correctamente'})
+         return redirect(url_for('index'))
+     else:
+         return notFound()
+```
 ## Bibliografia
