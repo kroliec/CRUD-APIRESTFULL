@@ -11,7 +11,7 @@ app=Flask(__name__)
 
 #rutas de la aplicacion
 #Metodo GET
-@app.route('/')
+@app.route('/users', methods=['GET'])
 def index():
     users=db['users']
     usersReceived=users.find()
@@ -47,7 +47,7 @@ def addUser():
 
 
 #Metodo Delete
-@app.route('/delete/<string:user_name>')#, methods=['DELETE'])
+@app.route('/delete/<string:user_name>', methods=['DELETE'])
 def delete(user_name):
     users=db['users']
     users.delete_one({'name':user_name})
