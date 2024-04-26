@@ -10,6 +10,7 @@ app=Flask(__name__)
 
 
 #rutas de la aplicacion
+#Metodo GET
 @app.route('/')
 def index():
     users=db['users']
@@ -21,7 +22,7 @@ def index():
 
 
 #Metodo POST
-@app.route('/users', methods=['POST'])
+@app.route('/users', methods=['POST','PUT'])
 def addUser():
     #recibiendo datos
     users=db['users']
